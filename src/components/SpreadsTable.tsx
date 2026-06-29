@@ -17,6 +17,27 @@ export default function SpreadsTable({ onSourceClick, onEmbedClick, regionFilter
     return latam.includes(s.flag);
   });
 
+  const trendIcon = (trend: string) => {
+    if (trend === "reduzindo") return <TrendingDown size={12} className="text-[#00FF88]" />;
+    if (trend === "estavel") return <Minus size={12} className="text-[#888]" />;
+    return <TrendingUp size={12} className="text-[#FF4444]" />;
+  };
+
+  const trendColor = (trend: string) => {
+    if (trend === "reduzindo") return "text-[#00FF88]";
+    if (trend === "estavel") return "text-[#888]";
+    return "text-[#FF4444]";
+  };
+
+  const trendLabel = (trend: string) => {
+    if (locale === "pt") {
+      if (trend === "reduzindo") return "Reduzindo";
+      if (trend === "estavel") return "Estavel";
+      return "Ampliando";
+    }
+    return trend;
+  };
+
   return (
     <section id="spreads" className="border-b border-[#1a1a1a] bg-[#050505]">
       <div className="max-w-[1440px] mx-auto px-4 py-8" ref={chartRef}>
@@ -43,8 +64,8 @@ export default function SpreadsTable({ onSourceClick, onEmbedClick, regionFilter
               </div>
               <div className={`col-span-2 text-right font-bold ${s.spread2025e > 0 ? "text-[#FF8C00]" : "text-[#00FF88]"}`}>{s.spread2025e > 0 ? "+" : ""}{s.spread2025e}</div>
               <div className="col-span-3 flex items-center gap-1.5">
-                {s.trend === "reduzindo" || s.trend === "reducing" ? <TrendingDown size={12} className="text-[#00FF88]" /> : s.trend === "estavel" || s.trend === "stable" ? <Minus size={12} className="text-[#888]" /> : <TrendingUp size={12} className="text-[#FF4444]" />}
-                <span className={s.trend === "reduzindo" || s.trend === "reducing" ? "text-[#00FF88]" : s.trend === "estavel" || s.trend === "stable" ? "text-[#888]" : "text-[#FF4444]"}>{locale === "pt" ? (s.trend === "reduzindo" ? "Reduzindo" : s.trend === "estavel" ? "Estavel" : "Ampliando") : s.trendEn}</span>
+                {trendIcon(s.trend)}
+                <span className={trendColor(s.trend)}>{trendLabel(s.trend)}</span>
               </div>
               <div className="col-span-2 text-right text-[#aaa]">{s.volatility2025e}%</div>
               <div className="col-span-2 text-right text-[#555]">{s.officialSpread ? `${s.officialSpread > 0 ? "+" : ""}${s.officialSpread}` : "—"}</div>
