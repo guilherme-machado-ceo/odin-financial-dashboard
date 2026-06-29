@@ -3,18 +3,14 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
-// https://vite.dev/config/
+// Dynamic base: GitHub Pages needs /odin-financial-dashboard/, others use /
+const base = process.env.VITE_BASE_PATH || '/';
+
 export default defineConfig({
-  base: '/odin-financial-dashboard/',
+  base,
   plugins: [inspectAttr(), react()],
-  server: {
-    port: 3000,
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+  server: { port: 3000 },
+  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
   build: {
     sourcemap: false,
     cssMinify: true,

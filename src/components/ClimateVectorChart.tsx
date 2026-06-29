@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { t, getLocale } from "@/i18n";
 import ExportButton from "./ExportButton";
 import EstBadge from "./EstBadge";
-import { Share2, CloudRain, Thermometer, Wind } from "lucide-react";
+import { Share2, CloudRain, Thermometer, Wind, Radio } from "lucide-react";
 
 interface ClimateData {
   city: string; cityPt: string; country: string; flag: string;
@@ -37,6 +37,8 @@ interface Props { onSourceClick: (id: string) => void; onEmbedClick: (id: string
 export default function ClimateVectorChart({ onSourceClick, onEmbedClick }: Props) {
   const chartRef = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<ClimateData[]>(FALLBACK_CLIMATE);
+  const [isLive, setIsLive] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<string>("");
   const locale = getLocale();
 
   useEffect(() => {
@@ -70,14 +72,19 @@ export default function ClimateVectorChart({ onSourceClick, onEmbedClick }: Prop
             if (fallback) results.push(fallback);
           }
         }
-        if (results.length > 0) setData(results);
-      } catch { /* Keep fallback */ }
+        if (results.length > 0) {
+          setData(results);
+          setIsLive(true);
+          setLastUpdated(new Date().toLocaleString(locale === "pt" ? "pt-BR" : "en-US"));
+        }
+      } catch {
+        // Keep fallback data
+      }
     }
     fetchClimate();
-  }, []);
+  }, [locale]);
 
   const jsonData = { climate: data };
-
   const riskColors: Record<string, string> = { drought: "#FF8C00", flood: "#4488FF", heat: "#FF4444", storm: "#FF00FF", normal: "#00FF88" };
   const riskLabelsPt: Record<string, string> = { drought: "Seca", flood: "Inundacao", heat: "Onda de calor", storm: "Tempestade", normal: "Normal" };
   const riskLabelsEn: Record<string, string> = { drought: "Drought", flood: "Flood risk", heat: "Heat wave", storm: "Storm", normal: "Normal" };
@@ -87,7 +94,17 @@ export default function ClimateVectorChart({ onSourceClick, onEmbedClick }: Prop
       <div className="max-w-[1440px] mx-auto px-4 py-8" ref={chartRef}>
         <div className="flex items-start justify-between mb-6">
           <div>
-            <div className="flex items-center gap-2 mb-1"><EstBadge /></div>
+            <div className="flex items-center gap-2 mb-1">
+              {isLive ? (
+                <span className="inline-flex items-center gap-1.5 text-[9px] font-mono text-[#00FF88] border border-[#00FF88]/30 px-1.5 py-0.5">
+                  <Radio size={10} className="animate-pulse" />
+                  {locale === "pt" ? "DADOS AO VIVO" : "LIVE DATA"}
+                  {lastUpdated && <span className="text-[#00FF88]/60">— {lastUpdated}</span>}
+                </span>
+              ) : (
+                <EstBadge />
+              )}
+            </div>
             <h2 className="text-xl font-bold text-[#e0e0e0] tracking-tight">{t("climate.title")}</h2>
             <p className="text-[11px] font-mono text-[#555] mt-1 max-w-2xl leading-relaxed">{t("climate.subtitle")}</p>
           </div>
@@ -164,7 +181,9 @@ export default function ClimateVectorChart({ onSourceClick, onEmbedClick }: Prop
         </div>
 
         <div className="mt-4">
-          <button onClick={() => onSourceClick("open-meteo")} className="text-[9px] font-mono text-[#444] hover:text-[#00FFFF] transition-colors">{t("climate.source")}: Open-Meteo (API sem chave) →</button>
+          <button onClick={() => onSourceClick("open-meteo")} className="text-[9px] font-mono text-[#444] hover:text-[#00FFFF] transition-colors">
+            {t("climate.source")}: Open-Meteo (API sem chave) →
+          </button>
         </div>
       </div>
     </section>
