@@ -35,7 +35,7 @@ const pt: T = {
     source: "Fonte", date: "Junho 2025",
   },
   news: {
-    title: "INTELIGENCIA DE MERCADO: NOTICIAS FINANCEIRAS EM TEMPO REAL (RSS)",
+    title: "INTELIGÊNCIA DE MERCADO: NOTICIAS FINANCEIRAS EM TEMPO REAL (RSS)",
     subtitle: "Feeds agregados de fontes globais — Sem chave de API necessária (Google News RSS)",
     readMore: "Ler mais", source: "Fonte", error: "Feed temporariamente indisponível. Usando dados de contingência.",
   },
