@@ -1,7 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import ContextBanner from "@/components/ContextBanner";
-import NewsTicker from "@/components/NewsTicker";
 import HeroSection from "@/components/HeroSection";
 import BrazilSpotlight from "@/components/BrazilSpotlight";
 import MarketSizeChart from "@/components/MarketSizeChart";
@@ -12,11 +11,11 @@ import DebtComposition from "@/components/DebtComposition";
 import StabilityScatter from "@/components/StabilityScatter";
 import GoldReservesChart from "@/components/GoldReservesChart";
 import OilVectorChart from "@/components/OilVectorChart";
+import NewsTicker from "@/components/NewsTicker";
 import ClimateVectorChart from "@/components/ClimateVectorChart";
 import Footer from "@/components/Footer";
 import SourceOverlay from "@/components/SourceOverlay";
 import EmbedOverlay from "@/components/EmbedOverlay";
-import CopyProtection from "@/components/CopyProtection";
 
 function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -65,24 +64,55 @@ export default function App() {
         ::-webkit-scrollbar-thumb:hover { background: #333; }
         ::selection { background-color: rgba(0, 255, 255, 0.2); color: #e0e0e0; }
       `}</style>
+
+      {/* ── 1. NAVBAR ── */}
       <Navbar />
+
+      {/* ── 2. CONTEXT BANNER: Geopolitical Economy ── */}
       <RevealSection><ContextBanner /></RevealSection>
+
+      {/* ── 3. NEWS TICKER: Live Financial Intelligence ── */}
       <RevealSection><NewsTicker /></RevealSection>
+
+      {/* ── 4. HERO: KPIs + Region Filter + Inflection Points ── */}
       <RevealSection><HeroSection regionFilter={regionFilter} onRegionChange={setRegionFilter} /></RevealSection>
+
+      {/* ── 5. BRAZIL SPOTLIGHT: Panda Bond + NDB Progress + Flowchart ── */}
       <RevealSection><BrazilSpotlight onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} /></RevealSection>
+
+      {/* ── 6. MARKET SIZE: BRICS + LATAM LC Bonds ── */}
       <RevealSection><MarketSizeChart onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} /></RevealSection>
+
+      {/* ── 7. SPREADS × VOLATILITY: Rate spreads vs FX vol ── */}
       <RevealSection><SpreadsTable onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} regionFilter={regionFilter} /></RevealSection>
+
+      {/* ── 8. VOLATILITY RANKING: G20 currencies ── */}
       <RevealSection><VolatilityChart onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} regionFilter={regionFilter} /></RevealSection>
+
+      {/* ── 9. TCX HEDGING: Local currency protection ── */}
       <RevealSection><TCXChart onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} /></RevealSection>
+
+      {/* ── 10. DEBT COMPOSITION: LC vs FX ── */}
       <RevealSection><DebtComposition onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} regionFilter={regionFilter} /></RevealSection>
+
+      {/* ── 11. STABILITY SCATTER: Economic stability vs LC share ── */}
       <RevealSection><StabilityScatter onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} regionFilter={regionFilter} /></RevealSection>
+
+      {/* ── 12. GOLD RESERVES: Anti-dollar anchor ── */}
       <RevealSection><GoldReservesChart onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} /></RevealSection>
+
+      {/* ── 13. OIL VECTOR: Price + Production + Petroyuan ── */}
       <RevealSection><OilVectorChart onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} /></RevealSection>
+
+      {/* ── 14. CLIMATE VECTOR: Temperature Anomalies + Risk Scores ── */}
       <RevealSection><ClimateVectorChart onSourceClick={handleSourceClick} onEmbedClick={handleEmbedClick} /></RevealSection>
+
+      {/* ── 15. FOOTER ── */}
       <Footer onSourceClick={handleSourceClick} />
+
+      {/* ── OVERLAYS ── */}
       <SourceOverlay sourceId={activeSource} onClose={handleCloseSource} />
       <EmbedOverlay sectionId={activeEmbed} onClose={handleCloseEmbed} />
-      <CopyProtection />
     </div>
   );
 }
