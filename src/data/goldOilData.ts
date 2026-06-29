@@ -51,11 +51,11 @@ export const oilData: OilData[] = [
 export const contextBanner: ContextBannerData = {
   tag: "GEOPOLITICAL ECONOMY",
   tagPt: "ECONOMIA GEOPOLITICA",
-  headline: "Brazil Files Intent Letter for Sovereign Panda Bond up to CNY 5 Billion — Pilot in China's Domestic Debt Market",
-  headlinePt: "Brasil entrega carta de intenção para Panda Bond soberano de até CNY 5 bilhões — Piloto no mercado de dívida doméstico chinês",
-  summary: "Brazil filed an intent letter to issue up to CNY 5 billion in sovereign Panda Bonds in China's domestic interbank market. The operation is structured by ICBC and Bank of China, pricing referenced to AIIB (1.70%) and Barclays (1.95%) recent issuances. If executed, Brazil becomes one of the first Latin American sovereigns to access the CNY-denominated market — institutional layer of the BRICS+ parallel financial infrastructure (CIPS, NDB, Bond Connect bilateral pilot).",
-  summaryPt: "O Brasil entregou carta de intenção para emitir até CNY 5 bilhões em Panda Bonds soberanos no mercado interbancário doméstico chinês. A operação tem estruturação do ICBC e Bank of China, com referência de precificação em emissões recentes do AIIB (1,70%) e Barclays (1,95%). Se executada, o Brasil se torna um dos primeiros soberanos latino-americanos a acessar o mercado denominado em CNY — camada institucional da infraestrutura financeira paralela BRICS+ (CIPS, NDB, Bond Connect bilateral em piloto).",
-  source: "G1 / Bloomberg / Reuters",
-  sourceUrl: "https://g1.globo.com/economia/",
+  headline: "Brazil Files Letter of Presentation for Sovereign Panda Bond up to CNY 5 Billion — Pilot in China's Domestic Debt Market",
+  headlinePt: "Brasil entrega Carta de Apresentação da República para Panda Bond soberano de até CNY 5 bilhões — Piloto no mercado de dívida doméstico chinês",
+  summary: "Brazil filed a Letter of Presentation to the NAFMII (National Association of Financial Market Institutional Investors) to register up to CNY 5 billion in sovereign Panda Bonds in China's domestic interbank market. Bookrunners not yet designated in public phase. If executed, Brazil becomes the first Latin American sovereign — and the 5th globally in 12 months, following Kazakhstan and Pakistan — to access the CNY-denominated market, an institutional layer of the BRICS+ parallel financial infrastructure (CIPS, NDB, Bond Connect bilateral pilot).",
+  summaryPt: "O Brasil entregou Carta de Apresentação da República à NAFMII (National Association of Financial Market Institutional Investors) para registrar até CNY 5 bilhões em Panda Bonds soberanos no mercado interbancário doméstico chinês. Estruturadores ainda não designados em fase pública. Se executada, a operação torna o Brasil o primeiro soberano latino-americano — e o 5º global em 12 meses, após Cazaquistão e Paquistão — a acessar o mercado denominado em CNY, camada institucional da infraestrutura financeira paralela BRICS+ (CIPS, NDB, Bond Connect bilateral em piloto).",
+  source: "Ministério da Fazenda / NAFMII / Reuters",
+  sourceUrl: "https://www.gov.br/fazenda/pt-br/assuntos/noticias",
   date: "June 2026",
 };
