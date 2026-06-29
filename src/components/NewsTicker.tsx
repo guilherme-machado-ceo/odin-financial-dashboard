@@ -121,12 +121,12 @@ export default function NewsTicker() {
 
 function getFallbackNews(locale: string): NewsItem[] {
   if (locale === "pt") return [
-    { title: "Brasil emite Panda Bond soberano em CNY 6 bilhoes — marco na saida do financiamento em USD", link: "#", pubDate: "28/06/2025", source: "Reuters" },
-    { title: "China e India aumentam reservas de ouro em 25% para reduzir dependencia do dolar", link: "#", pubDate: "25/06/2025", source: "Financial Times" },
-    { title: "CIPS (sistema de pagamentos chines) processa ¥200 trilhoes em 2025 — novo recorde", link: "#", pubDate: "24/06/2025", source: "Bloomberg" },
-    { title: "Petroleo Brent ultrapassa US$ 85/barril apos tensoes no Golfo Persico", link: "#", pubDate: "23/06/2025", source: "Reuters" },
+    { title: "Brasil emite Panda Bond soberano em CNY 6 bilhões — marco na saída do financiamento em USD", link: "#", pubDate: "28/06/2025", source: "Reuters" },
+    { title: "China e Índia aumentam reservas de ouro em 25% para reduzir dependência do dólar", link: "#", pubDate: "25/06/2025", source: "Financial Times" },
+    { title: "CIPS (sistema de pagamentos chinês) processa ¥200 trilhões em 2025 — novo recorde", link: "#", pubDate: "24/06/2025", source: "Bloomberg" },
+    { title: "Petróleo Brent ultrapassa US$ 85/barril após tensões no Golfo Pérsico", link: "#", pubDate: "23/06/2025", source: "Reuters" },
     { title: "NDB (Novo Banco de Desenvolvimento) atinge meta de 30% em Moeda Local (ML) adiantada", link: "#", pubDate: "22/06/2025", source: "NDB Press" },
-    { title: "BRL/USD Ptax fecha em 5,1689 — BCB monitora fluxos de Panda Bond", link: "#", pubDate: "21/06/2025", source: "Valor Economico" },
+    { title: "BRL/USD Ptax fecha em 5,1689 — BCB monitora fluxos de Panda Bond", link: "#", pubDate: "21/06/2025", source: "Valor Econômico" },
   ];
   return [
     { title: "Brazil issues sovereign Panda Bond in CNY 6 billion — landmark shift from USD financing", link: "#", pubDate: "06/28/2025", source: "Reuters" },

@@ -86,7 +86,7 @@ export default function ClimateVectorChart({ onSourceClick, onEmbedClick }: Prop
 
   const jsonData = { climate: data };
   const riskColors: Record<string, string> = { drought: "#FF8C00", flood: "#4488FF", heat: "#FF4444", storm: "#FF00FF", normal: "#00FF88" };
-  const riskLabelsPt: Record<string, string> = { drought: "Seca", flood: "Inundacao", heat: "Onda de calor", storm: "Tempestade", normal: "Normal" };
+  const riskLabelsPt: Record<string, string> = { drought: "Seca", flood: "Inundação", heat: "Onda de calor", storm: "Tempestade", normal: "Normal" };
   const riskLabelsEn: Record<string, string> = { drought: "Drought", flood: "Flood risk", heat: "Heat wave", storm: "Storm", normal: "Normal" };
 
   return (
