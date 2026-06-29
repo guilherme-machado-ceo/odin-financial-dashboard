@@ -3,9 +3,21 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
+// https://vite.dev/config/
 export default defineConfig({
   base: '/odin-financial-dashboard/',
   plugins: [inspectAttr(), react()],
-  server: { port: 3000 },
-  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+  server: {
+    port: 3000,
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    sourcemap: false,
+    cssMinify: true,
+    minify: 'esbuild',
+  },
 });

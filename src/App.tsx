@@ -16,6 +16,7 @@ import ClimateVectorChart from "@/components/ClimateVectorChart";
 import Footer from "@/components/Footer";
 import SourceOverlay from "@/components/SourceOverlay";
 import EmbedOverlay from "@/components/EmbedOverlay";
+import CopyProtection from "@/components/CopyProtection";
 
 function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -81,6 +82,7 @@ export default function App() {
       <Footer onSourceClick={handleSourceClick} />
       <SourceOverlay sourceId={activeSource} onClose={handleCloseSource} />
       <EmbedOverlay sectionId={activeEmbed} onClose={handleCloseEmbed} />
+      <CopyProtection />
     </div>
   );
 }
